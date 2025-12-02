@@ -1,6 +1,11 @@
-import { Box, Input } from "@mui/joy";
+import { Box, Input, Typography } from "@mui/joy";
 import { forwardRef } from "react";
-import { IoCloseOutline } from "react-icons/io5";
+import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
+
+// Detect Mac OS for keyboard shortcut display
+const isMac =
+  typeof navigator !== "undefined" &&
+  navigator.platform.toUpperCase().indexOf("MAC") >= 0;
 
 interface SearchBarProps {
   value: string;
@@ -38,33 +43,56 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
           },
         }}
         startDecorator={
-          <span style={{ fontSize: compact ? "1rem" : "1.2rem", opacity: 0.6 }}>
-            🔍
-          </span>
+          <IoSearchOutline
+            style={{ fontSize: compact ? "1rem" : "1.2rem", opacity: 0.6 }}
+          />
         }
         endDecorator={
-          value && (
-            <Box
-              component="button"
-              onClick={() => onChange("")}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {value && (
+              <Box
+                component="button"
+                onClick={() => onChange("")}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "none",
+                  background: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                  color: "text.tertiary",
+                  fontSize: compact ? "1.25rem" : "1.5rem",
+                  "&:hover": {
+                    color: "text.secondary",
+                  },
+                }}
+              >
+                <IoCloseOutline />
+              </Box>
+            )}
+            <Typography
+              component="kbd"
               sx={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                padding: 0,
+                gap: 0.25,
+                px: 0.75,
+                py: 0.25,
+                borderRadius: "sm",
+                backgroundColor: "background.level1",
+                border: "1px solid",
+                borderColor: "divider",
                 color: "text.tertiary",
-                fontSize: compact ? "1.25rem" : "1.5rem",
-                "&:hover": {
-                  color: "text.secondary",
-                },
+                fontSize: "xs",
+                fontFamily: "inherit",
+                fontWeight: 500,
+                whiteSpace: "nowrap",
               }}
             >
-              <IoCloseOutline />
-            </Box>
-          )
+              {isMac ? "⌘" : "Ctrl+"}K
+            </Typography>
+          </Box>
         }
       />
     );

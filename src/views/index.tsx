@@ -14,6 +14,23 @@ const IndexView: FunctionComponent = () => {
   const heroInputRef = useRef<HTMLInputElement>(null);
   const activeInputRef = useRef<"sticky" | "hero" | null>(null);
 
+  // Keyboard shortcut for search focus (Ctrl+K / Cmd+K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        if (showStickySearch) {
+          stickyInputRef.current?.focus();
+        } else {
+          heroInputRef.current?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showStickySearch]);
+
   // Set page title and favicon
   useEffect(() => {
     document.title = `${config.companyName} Developer Portal`;

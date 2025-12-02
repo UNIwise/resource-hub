@@ -1,5 +1,6 @@
 import { Box, Chip, Typography } from "@mui/joy";
 import type { FunctionComponent } from "react";
+import { IoSearchOutline, IoStar } from "react-icons/io5";
 import { config } from "../config";
 import type { Link } from "../models/link";
 import { useFavoritesStore } from "../stores/favorites";
@@ -38,7 +39,7 @@ const LinkGrid: FunctionComponent<LinkGridProps> = ({ links, searchQuery }) => {
           gap: 2,
         }}
       >
-        <Typography sx={{ fontSize: "3rem" }}>🔍</Typography>
+        <IoSearchOutline style={{ fontSize: "3rem" }} />
         <Typography level="h4" sx={{ color: "text.secondary" }}>
           No results found
         </Typography>
@@ -106,8 +107,12 @@ const LinkGrid: FunctionComponent<LinkGridProps> = ({ links, searchQuery }) => {
           <Box
             sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2.5 }}
           >
-            <Typography level="title-lg" fontWeight={600}>
-              ⭐ Favorites
+            <Typography
+              level="title-lg"
+              fontWeight={600}
+              sx={{ display: "flex", alignItems: "center", gap: 1 }}
+            >
+              <IoStar style={{ color: "#f59e0b" }} /> Favorites
             </Typography>
             <Chip
               size="sm"

@@ -1,13 +1,18 @@
 import { Box, IconButton, Tooltip } from "@mui/joy";
 import { useColorScheme } from "@mui/joy/styles";
-import type { FunctionComponent } from "react";
+import type { FunctionComponent, ReactNode } from "react";
+import {
+  IoDesktopOutline,
+  IoMoonOutline,
+  IoSunnyOutline,
+} from "react-icons/io5";
 
 type Mode = "system" | "light" | "dark";
 
-const modes: { value: Mode; icon: string; label: string }[] = [
-  { value: "light", icon: "☀️", label: "Light" },
-  { value: "dark", icon: "🌙", label: "Dark" },
-  { value: "system", icon: "💻", label: "System" },
+const modes: { value: Mode; icon: ReactNode; label: string }[] = [
+  { value: "light", icon: <IoSunnyOutline />, label: "Light" },
+  { value: "dark", icon: <IoMoonOutline />, label: "Dark" },
+  { value: "system", icon: <IoDesktopOutline />, label: "System" },
 ];
 
 const ThemeSwitcher: FunctionComponent = () => {
