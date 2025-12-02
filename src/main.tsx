@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
     <CssVarsProvider
       theme={theme}
       defaultMode="system"
-      modeStorageKey="theme-mode"
+      modeStorageKey="devhub-theme-mode"
     >
       <CssBaseline />
       <Main>
