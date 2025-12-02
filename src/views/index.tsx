@@ -5,9 +5,10 @@ import Header from "../components/Header";
 import LinkGrid from "../components/LinkGrid";
 import SearchBar from "../components/SearchBar";
 import { config, links } from "../config";
+import { useQueryParamState } from "../hooks/useQueryParamState";
 
 const IndexView: FunctionComponent = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useQueryParamState("q");
   const [showStickySearch, setShowStickySearch] = useState(false);
   const heroSearchRef = useRef<HTMLDivElement>(null);
   const stickyInputRef = useRef<HTMLInputElement>(null);
