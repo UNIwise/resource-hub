@@ -9,9 +9,11 @@
 ## Features
 
 - 🔍 **Search** - Quickly find tools with real-time filtering (Ctrl+K / ⌘K)
+- ⌨️ **Keyboard Navigation** - Use arrow keys to navigate, Enter to open links
 - 🏷️ **Tags** - Filter links by tags for easier discovery
 - ⭐ **Favorites** - Mark frequently used links for quick access (persisted locally)
 - 🌓 **Theme Switcher** - Light, dark, and system theme support
+- ⚙️ **User Settings** - Customize layout, sorting, and behavior (persisted locally)
 - 📱 **Responsive** - Works great on desktop and mobile
 - 🔗 **Shareable URLs** - Search and tag filters are persisted in the URL
 - ✏️ **Easy Configuration** - Single config file for all customization

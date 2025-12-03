@@ -1,5 +1,12 @@
 import { Box, Typography } from "@mui/joy";
-import { useCallback, useEffect, useRef, useState, type FunctionComponent } from "react";
+import {
+  startTransition,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type FunctionComponent,
+} from "react";
 import Header from "../components/Header";
 import LinkGrid, { type LinkGridHandle } from "../components/LinkGrid";
 import SearchBar from "../components/SearchBar";
@@ -9,9 +16,11 @@ import {
   useQueryParamArrayState,
   useQueryParamState,
 } from "../hooks/useQueryParamState";
+import { useSettingsStore } from "../stores/settings";
 
 const IndexView: FunctionComponent = () => {
   const [searchQuery, setSearchQuery] = useQueryParamState("q");
+  const { getEffectiveSettings } = useSettingsStore();
   const [selectedTags, setSelectedTags] = useQueryParamArrayState("tags");
   const [showStickySearch, setShowStickySearch] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -22,28 +31,36 @@ const IndexView: FunctionComponent = () => {
   const linkGridRef = useRef<LinkGridHandle>(null);
 
   // Reset selection when search query or tags change, select first if searching
+  // Using startTransition to avoid "setState in effect" warning
   useEffect(() => {
-    if (searchQuery || selectedTags.length > 0) {
-      setSelectedIndex(0);
-    } else {
-      setSelectedIndex(-1);
-    }
+    startTransition(() => {
+      if (searchQuery || selectedTags.length > 0) {
+        setSelectedIndex(0);
+      } else {
+        setSelectedIndex(-1);
+      }
+    });
   }, [searchQuery, selectedTags]);
 
   // Open the selected link
   const openSelectedLink = useCallback(() => {
     const visibleLinks = linkGridRef.current?.getVisibleLinks() ?? [];
+    const settings = getEffectiveSettings();
     if (selectedIndex >= 0 && selectedIndex < visibleLinks.length) {
       const link = visibleLinks[selectedIndex];
-      if (config.linkTarget === "new-window") {
-        window.open(link.href, "_blank", "noopener,noreferrer,width=1200,height=800");
-      } else if (config.linkTarget === "same-tab") {
+      if (settings.linkTarget === "new-window") {
+        window.open(
+          link.href,
+          "_blank",
+          "noopener,noreferrer,width=1200,height=800"
+        );
+      } else if (settings.linkTarget === "same-tab") {
         window.location.href = link.href;
       } else {
         window.open(link.href, "_blank", "noopener,noreferrer");
       }
     }
-  }, [selectedIndex]);
+  }, [selectedIndex, getEffectiveSettings]);
 
   // Keyboard navigation for cards
   useEffect(() => {

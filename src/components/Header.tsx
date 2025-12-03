@@ -1,11 +1,13 @@
 import { Box, Tooltip, Typography } from "@mui/joy";
-import type { FunctionComponent } from "react";
-import { IoLogoGithub } from "react-icons/io5";
+import { useState, type FunctionComponent } from "react";
+import { IoLogoGithub, IoSettingsOutline } from "react-icons/io5";
 import { config } from "../config";
+import SettingsDialog from "./SettingsDialog";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const Header: FunctionComponent = () => {
   const editUrl = config.githubEditUrl;
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
     <Box
@@ -101,8 +103,40 @@ const Header: FunctionComponent = () => {
             </Box>
           </Tooltip>
         )}
+        <Tooltip title="Settings" placement="bottom">
+          <Box
+            component="button"
+            onClick={() => setSettingsOpen(true)}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              px: 1,
+              py: 0.5,
+              borderRadius: "lg",
+              backgroundColor: "background.level1",
+              color: "text.primary",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "sm",
+              fontWeight: 500,
+              minHeight: 44,
+              minWidth: 44,
+              transition: "background-color 0.15s",
+              "&:hover": {
+                backgroundColor: "background.level2",
+              },
+            }}
+          >
+            <IoSettingsOutline style={{ fontSize: "1.2rem" }} />
+          </Box>
+        </Tooltip>
         <ThemeSwitcher />
       </Box>
+      <SettingsDialog
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
     </Box>
   );
 };
