@@ -52,7 +52,7 @@ const IndexView: FunctionComponent = () => {
         window.open(
           link.href,
           "_blank",
-          "noopener,noreferrer,width=1200,height=800"
+          "noopener,noreferrer,width=1200,height=800",
         );
       } else if (settings.linkTarget === "same-tab") {
         window.location.href = link.href;
@@ -261,7 +261,7 @@ const IndexView: FunctionComponent = () => {
                   setSelectedTags(
                     selectedTags.includes(tag)
                       ? selectedTags.filter((t) => t !== tag)
-                      : [...selectedTags, tag]
+                      : [...selectedTags, tag],
                   )
                 }
               />

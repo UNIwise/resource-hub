@@ -28,6 +28,6 @@ export const useFavoritesStore = create<FavoritesState>()(
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);
       },
-    }
-  )
+    },
+  ),
 );
