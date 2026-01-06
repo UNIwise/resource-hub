@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from "react";
  */
 export function useQueryParamState(
   key: string,
-  defaultValue: string = ""
+  defaultValue: string = "",
 ): [string, (value: string) => void] {
   // Initialize state from URL or default
   const [value, setValue] = useState<string>(() => {
@@ -58,7 +58,7 @@ export function useQueryParamState(
  * @returns A tuple of [values, setValues] similar to useState
  */
 export function useQueryParamArrayState(
-  key: string
+  key: string,
 ): [string[], (value: string[]) => void] {
   // Initialize state from URL or empty array
   const [values, setValues] = useState<string[]>(() => {

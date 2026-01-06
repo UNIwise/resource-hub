@@ -96,7 +96,7 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
         }
       />
     );
-  }
+  },
 );
 
 SearchBar.displayName = "SearchBar";

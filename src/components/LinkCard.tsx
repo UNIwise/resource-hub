@@ -24,7 +24,7 @@ const isDevicon = (str: string): boolean => {
 };
 
 const parseDevicon = (
-  str: string
+  str: string,
 ): { name: string; variant: string; usesSvg: boolean } => {
   const fullName = str.replace("devicon/", "");
   const parts = fullName.split("-");
@@ -124,7 +124,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
         window.open(
           link.href,
           "_blank",
-          "noopener,noreferrer,width=1200,height=800"
+          "noopener,noreferrer,width=1200,height=800",
         );
       }
     };
@@ -326,7 +326,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
         )}
       </Card>
     );
-  }
+  },
 );
 
 LinkCard.displayName = "LinkCard";

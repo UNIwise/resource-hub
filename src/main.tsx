@@ -1,6 +1,7 @@
 import { Box, CssBaseline, CssVarsProvider, styled } from "@mui/joy";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "unfonts.css";
 import HydrationGate from "./components/HydrationGate";
 import "./index.scss";
 import theme from "./theme";
@@ -31,5 +32,5 @@ createRoot(document.getElementById("root")!).render(
         </HydrationGate>
       </Main>
     </CssVarsProvider>
-  </StrictMode>
+  </StrictMode>,
 );

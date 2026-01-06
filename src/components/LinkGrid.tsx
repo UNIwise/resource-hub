@@ -39,7 +39,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
       const matchesTags =
         selectedTags.length === 0 ||
         selectedTags.every((tag) =>
-          link.tags?.some((t) => t.toLowerCase() === tag.toLowerCase())
+          link.tags?.some((t) => t.toLowerCase() === tag.toLowerCase()),
         );
 
       return matchesQuery && matchesTags;
@@ -47,10 +47,10 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
 
     // Separate favorites from other links
     const favoriteLinks = filteredLinks.filter((link) =>
-      favorites.includes(link.href)
+      favorites.includes(link.href),
     );
     const nonFavoriteLinks = filteredLinks.filter(
-      (link) => !favorites.includes(link.href)
+      (link) => !favorites.includes(link.href),
     );
 
     // Group non-favorite links by category, preserving order
@@ -65,7 +65,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
         acc[category].push(link);
         return acc;
       },
-      {}
+      {},
     );
 
     // Sort categories based on settings
@@ -77,11 +77,11 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
       const definedOrder = config.categories;
       const inDefined = categoryOrder.filter((c) => definedOrder.includes(c));
       const notInDefined = categoryOrder.filter(
-        (c) => !definedOrder.includes(c)
+        (c) => !definedOrder.includes(c),
       );
       sortedCategories = [
         ...inDefined.sort(
-          (a, b) => definedOrder.indexOf(a) - definedOrder.indexOf(b)
+          (a, b) => definedOrder.indexOf(a) - definedOrder.indexOf(b),
         ),
         ...notInDefined,
       ];
@@ -112,7 +112,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
       () => ({
         getVisibleLinks: () => visibleLinks,
       }),
-      [visibleLinks]
+      [visibleLinks],
     );
 
     if (filteredLinks.length === 0) {
@@ -185,7 +185,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
             >
               {favoriteLinks.map((link) => {
                 const globalIndex = visibleLinks.findIndex(
-                  (l) => l.href === link.href
+                  (l) => l.href === link.href,
                 );
                 return (
                   <LinkCard
@@ -226,7 +226,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
             >
               {groupedLinks[category].map((link) => {
                 const globalIndex = visibleLinks.findIndex(
-                  (l) => l.href === link.href
+                  (l) => l.href === link.href,
                 );
                 return (
                   <LinkCard
@@ -241,7 +241,7 @@ const LinkGrid = forwardRef<LinkGridHandle, LinkGridProps>(
         ))}
       </Box>
     );
-  }
+  },
 );
 
 LinkGrid.displayName = "LinkGrid";
