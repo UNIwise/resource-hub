@@ -241,7 +241,7 @@ export const links: Link[] = [
   },
   {
     title: "Mail Viewer (Dev)",
-    href: "https://mail.dev.wf/",
+    href: "https://mail.develop.wf/",
     description: "Captured emails from development environment",
     icon: "✉️",
     category: "Development",
