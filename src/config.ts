@@ -134,6 +134,7 @@ export const links: Link[] = [
     icon: "devicon/prometheus-original",
     category: "Monitoring",
     tags: ["wiseflow", "production", "alerting"],
+    label: "VPN Required",
   },
   {
     title: "Kibana Logs",
@@ -142,6 +143,7 @@ export const links: Link[] = [
     icon: "devicon/kibana-original",
     category: "Monitoring",
     tags: ["wiseflow", "production", "logging"],
+    label: "VPN Required",
   },
   {
     title: "OpenCost",
@@ -150,6 +152,7 @@ export const links: Link[] = [
     icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/opencost.png",
     category: "Monitoring",
     tags: ["wiseflow", "production", "cost"],
+    label: "VPN Required",
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -202,6 +205,7 @@ export const links: Link[] = [
     icon: "devicon/rabbitmq-original",
     category: "Operations",
     tags: ["wiseflow", "production", "messaging"],
+    label: "VPN Required",
   },
   {
     title: "EMQX",
@@ -210,6 +214,7 @@ export const links: Link[] = [
     icon: "https://www.emqx.com/favicon/favicon-96x96.png",
     category: "Operations",
     tags: ["wiseflow", "production", "messaging"],
+    label: "VPN Required",
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -240,12 +245,22 @@ export const links: Link[] = [
     tags: ["localization"],
   },
   {
+    title: "Mail Viewer (Hotfix)",
+    href: "https://mail.hotfix.wf/",
+    description: "Captured emails from hotfix environment",
+    icon: "✉️",
+    category: "Development",
+    tags: ["wiseflow", "hotfix", "testing"],
+    label: "VPN Required",
+  },
+  {
     title: "Mail Viewer (Dev)",
     href: "https://mail.develop.wf/",
     description: "Captured emails from development environment",
     icon: "✉️",
     category: "Development",
     tags: ["wiseflow", "development", "testing"],
+    label: "VPN Required",
   },
   {
     title: "Mail Viewer (Staging)",
@@ -254,6 +269,7 @@ export const links: Link[] = [
     icon: "✉️",
     category: "Development",
     tags: ["wiseflow", "staging", "testing"],
+    label: "VPN Required",
   },
   {
     title: "Mail Viewer (Prod)",
@@ -262,6 +278,7 @@ export const links: Link[] = [
     icon: "✉️",
     category: "Development",
     tags: ["wiseflow", "production", "testing"],
+    label: "VPN Required",
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
