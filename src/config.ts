@@ -72,6 +72,7 @@ export const links: Link[] = [
     icon: "devicon/npm-original-wordmark",
     category: "Development",
     tags: ["packages", "javascript", "self-hosted"],
+    label: { text: "Beta", color: "primary" },
   },
 
   // DevOps & CI/CD
@@ -118,6 +119,7 @@ export const links: Link[] = [
       "Web-based UI for managing containerized applications. View cluster resources, deploy apps, and troubleshoot workloads.",
     icon: "devicon/kubernetes-original",
     category: "Infrastructure",
+    label: { text: "VPN Required" },
   },
   {
     href: "https://console.aws.amazon.com",
@@ -125,6 +127,10 @@ export const links: Link[] = [
     description: "Amazon Web Services management console",
     icon: "devicon/amazonwebservices-plain-wordmark",
     category: "Infrastructure",
+    label: {
+      text: "AWS",
+      color: "primary",
+    },
   },
   {
     href: "https://portal.azure.com",
@@ -132,6 +138,7 @@ export const links: Link[] = [
     description: "Microsoft Azure cloud platform",
     icon: "devicon/azure-original",
     category: "Infrastructure",
+    label: "Microsoft",
   },
   {
     href: "https://docker.example.com",
@@ -148,6 +155,7 @@ export const links: Link[] = [
     description: "Metrics dashboards and monitoring",
     icon: "devicon/grafana-original",
     category: "Observability",
+    label: { text: "VPN Required" },
   },
   {
     href: "https://prometheus.example.com",
