@@ -1,8 +1,9 @@
-import { Box, Card, IconButton, Tooltip, Typography } from "@mui/joy";
+import { Box, Card, Chip, IconButton, Tooltip, Typography } from "@mui/joy";
 import { forwardRef, type MouseEvent } from "react";
 import { IoIosLink } from "react-icons/io";
 import { IoStar, IoStarOutline } from "react-icons/io5";
-import type { Link } from "../models/link";
+import { isJoyColor } from "../helpers/joy";
+import type { Link, LinkLabel } from "../models/link";
 import { useFavoritesStore } from "../stores/favorites";
 import { useSettingsStore } from "../stores/settings";
 
@@ -131,6 +132,33 @@ const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
 
     const isCompact = settings.cardLayout === "compact";
 
+    const renderLabel = (label?: string | LinkLabel) => {
+      if (!label) return null;
+
+      const text = typeof label === "string" ? label : label.text;
+      const color =
+        typeof label === "string" ? "warning" : label.color || "warning";
+      const isCustomColor = !isJoyColor(color);
+
+      return (
+        <Chip
+          size="sm"
+          variant="outlined"
+          color={isCustomColor ? "neutral" : color}
+          sx={{
+            fontWeight: 600,
+            fontSize: "0.6rem",
+            ...(isCustomColor && {
+              backgroundColor: `${color}20`,
+              color: color,
+            }),
+          }}
+        >
+          {text}
+        </Chip>
+      );
+    };
+
     if (isCompact) {
       return (
         <Card
@@ -202,6 +230,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
                 {link.description}
               </Typography>
             )}
+            {renderLabel(link?.label)}
           </Box>
 
           {/* Favorite button */}
@@ -324,6 +353,8 @@ const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
             {link.description}
           </Typography>
         )}
+
+        {renderLabel(link?.label)}
       </Card>
     );
   },

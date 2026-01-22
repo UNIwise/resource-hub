@@ -1,3 +1,15 @@
+export interface LinkLabel {
+  /** The text to display in the label chip */
+  text: string;
+  /**
+   * The color of the label chip.
+   * Can be a Joy UI color: "primary", "neutral", "danger", "success", "warning"
+   * Or a custom hex color: "#ff5500"
+   * Defaults to "warning" if not specified.
+   */
+  color?: "primary" | "neutral" | "danger" | "success" | "warning" | string;
+}
+
 export interface Link {
   href: string;
   title: string;
@@ -18,4 +30,12 @@ export interface Link {
    * Tags are displayed as chips and can be clicked to filter links.
    */
   tags?: string[];
+  /**
+   * Optional label/chip to display on the card.
+   * Can be:
+   * - A string: "VPN Required" (uses warning color)
+   * - An object: { text: "Beta", color: "primary" }
+   * Defaults to warning color if color not specified.
+   */
+  label?: string | LinkLabel;
 }

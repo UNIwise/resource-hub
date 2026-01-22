@@ -90,12 +90,33 @@ export const links: Link[] = [
     icon: "devicon/github-original", // Optional (shows link icon if omitted)
     category: "Development", // Optional (defaults to "Other")
     tags: ["git", "code"], // Optional: For filtering
+    label: "VPN Required", // Optional: Shows a label chip on the card
   },
   // ... more links
 ];
 ```
 
 Only `href` and `title` are required. All other fields are optional.
+
+### Labels
+
+You can add a label/chip to any link card to indicate things like "VPN Required", "Beta", "Deprecated", etc.
+
+```typescript
+// Simple string (uses warning/orange color)
+label: "VPN Required"
+
+// With custom color (Joy UI colors)
+label: { text: "Beta", color: "primary" }
+label: { text: "New", color: "success" }
+label: { text: "Deprecated", color: "danger" }
+label: { text: "Internal", color: "neutral" }
+
+// With custom hex color
+label: { text: "Custom", color: "#ff5500" }
+```
+
+Available colors: `primary` (blue), `neutral` (gray), `danger` (red), `success` (green), `warning` (orange, default)
 
 ### Icon Options
 
