@@ -353,6 +353,14 @@ export const links: Link[] = [
     category: "Documentation",
     tags: ["wiki"],
   },
+  {
+    title: "Accessibility Guidelines",
+    href: "https://uniwise.atlassian.net/wiki/spaces/UNIWISE/pages/28835841/Frontend+conventions+Accessibility+Guidelines",
+    description: "Internal documentation about accessibility guidelines",
+    icon: "🦾",
+    category: "Documentation",
+    tags: ["wiki", "frontend", "design"],
+  },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // PROJECT MANAGEMENT - Planning, tracking, and coordination
