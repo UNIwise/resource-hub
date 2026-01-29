@@ -120,6 +120,13 @@ export const links: Link[] = [
     tags: ["wiseflow", "staging", "metrics"],
   },
   {
+    title: "Grafana (WISEflow Dev)",
+    href: "https://grafana.dev.eu.wiseflow.io/",
+    description: "Metrics and dashboards for development environment",
+    icon: "devicon/grafana-original",
+    category: "Monitoring",
+  },
+  {
     title: "Grafana (Originality)",
     href: "https://monitoring.originality.wf/",
     description: "Metrics, Logs and dashboards for Originality",
@@ -197,6 +204,20 @@ export const links: Link[] = [
     icon: "https://defectdojo.wiseflow.io/static/dojo/img/favicon.png",
     category: "Operations",
     tags: ["security"],
+  },
+  {
+    title: "Trust Center",
+    href: "https://trust.uniwise.eu/",
+    description: "Security and compliance status",
+    icon: "https://img-prod.eu.dratacdn.com/f61acecd-9994-4390-a2e9-f6cf494eaa33%2Flogos%2F8ce6e36e-3a79-4b46-b189-e0ecbf7280f2%2Funiwise.dk",
+    category: "Operations",
+  },
+  {
+    title: "Drata",
+    href: "https://app.drata.com/",
+    description: "Security and compliance management",
+    icon: "https://app.drata.com/favicon.ico",
+    category: "Operations",
   },
   {
     title: "RabbitMQ",
@@ -431,5 +452,19 @@ export const links: Link[] = [
     icon: "https://outlook.office.com/favicon.ico",
     category: "Communication",
     tags: ["email"],
+  },
+  {
+    title: "Kanpla",
+    href: "https://app.kanpla.io/",
+    description: "Canteen and food ordering",
+    icon: "https://karrierevejviser.dk/images/dynamic/company/logo/127608",
+    category: "Communication",
+  },
+  {
+    title: "Danløn",
+    href: "https://danlon.dk/",
+    description: "Payroll and salary management",
+    icon: "https://onlinepos.dk/wp-content/uploads/2022/02/danloen-standardLogo.png",
+    category: "Communication",
   },
 ];
