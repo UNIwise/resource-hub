@@ -84,12 +84,12 @@ export const links: Link[] = [
     tags: ["originality", "production"],
   },
   {
-    title: "Originality Prerelease",
-    href: "https://prerelease.wiseflow-originality.net/",
+    title: "Originality Stage",
+    href: "https://stage.wiseflow-originality.net/",
     description: "Pre-production validation before rollout",
-    icon: "https://prerelease.wiseflow-originality.net/static/icons/logo.svg",
+    icon: "https://stage.wiseflow-originality.net/static/icons/logo.svg",
     category: "Environments",
-    tags: ["originality", "prerelease"],
+    tags: ["originality", "stage"],
   },
   {
     title: "Originality Dev",
@@ -338,12 +338,12 @@ export const links: Link[] = [
     tags: ["originality", "api-docs", "production"],
   },
   {
-    title: "API Docs (Originality Prerelease)",
-    href: "https://api.prerelease.wiseflow-originality.net",
-    description: "Prerelease API documentation for testing",
+    title: "API Docs (Originality Stage)",
+    href: "https://api.stage.wiseflow-originality.net",
+    description: "Stage API documentation for testing",
     icon: "https://docs.wiseflow.net/assets/favicon-32x32.png",
     category: "Documentation",
-    tags: ["originality", "api-docs", "prerelease"],
+    tags: ["originality", "api-docs", "stage"],
   },
   {
     title: "Internal Docs (WISEflow)",
